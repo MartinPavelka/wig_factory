@@ -1,12 +1,20 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07.users;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.objects.*;
+
 public class User {
 
 	private String name;
 	private String username;
 	private String password;
-	private boolean Gender; // 0 - female, 1 - male
-	private int userType;
+	private boolean gender; // 0 - female, 1 - male
+	
+	User(String name, String username, String password, boolean gender) {
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.gender = gender; 
+	}
 	
 	public String getName() {
 		return name;
@@ -26,17 +34,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isGender() {
-		return Gender;
+	public boolean isgender() {
+		return gender;
 	}
-	public void setGender(boolean gender) {
-		Gender = gender;
-	}
-	public int getUserType() {
-		return userType;
-	}
-	public void setUserType(int userType) {
-		this.userType = userType;
+	public void setgender(boolean gender) {
+		this.gender = gender;
 	}
 	
 	
