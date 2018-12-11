@@ -4,7 +4,7 @@ import com.gitlab.fisvse.tymova_uloha_pavm07.users.Donor;
 
 public class Donation {
 
-	private String type;
+	private String type; //type = either hair or money
 	private int amount; //if money the unit is CZK, if hair its grams
 	private Donor owner;
 	

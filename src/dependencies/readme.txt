@@ -1,1 +1,0 @@
-JDBC driver pro SQLite
