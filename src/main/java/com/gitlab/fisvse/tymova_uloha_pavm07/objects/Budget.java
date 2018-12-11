@@ -8,12 +8,14 @@ import com.gitlab.fisvse.tymova_uloha_pavm07.users.Donor;
 public class Budget {
 	int size;
 	ArrayList<Donation> resources = new ArrayList<Donation>();
+	ArrayList<Hair> hairResources = new ArrayList<Hair>();
 	
 	Budget() {
 		size = 0;
 	}
 	
 	public void receiveDonation(int amount, String type, Donor owner) {
+		// create if statement for diifferent types of donations. receive into different lists;
 		resources.add(new Donation(type, amount, owner));
 	}
 	
