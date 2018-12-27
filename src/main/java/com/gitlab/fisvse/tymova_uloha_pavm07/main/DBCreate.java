@@ -5,10 +5,10 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBCreate {
 
 	public static void createNewDatabase(String fileName) {
-		 
+		// SQLITE connection string 
         String url = "jdbc:sqlite:src/main/resources/" + fileName;
  
         try (Connection conn = DriverManager.getConnection(url)) {
@@ -24,7 +24,7 @@ public class DBConnection {
 	}
 	
 	public static void main(String[] args) {
-        createNewDatabase("test.db");
+        createNewDatabase("database.db");
     }
 
 }
