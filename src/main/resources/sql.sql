@@ -1,0 +1,34 @@
+-- .read C:\\Users\\Marty\\eclipse-workspace\\/tymova-uloha-pavm07\\src\\main\\resources\\sql.sql
+
+CREATE TABLE IF NOT EXISTS Donations(
+	id INTEGER AUTO INCREMENT NOT NULL PRIMARY KEY,
+	userid INTEGER,
+	amount INTEGER,
+	hair INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Users(
+	id INTEGER AUTO INCREMENT NOT NULL PRIMARY KEY,
+	username TEXT,
+	password TEXT,
+	role INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Projects(
+	id INTEGER AUTO INCREMENT NOT NULL PRIMARY KEY,
+	price INTEGER,
+	status INTEGER,
+	name TEXT,
+	userid INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Orders(
+	id INTEGER AUTO INCREMENT NOT NULL PRIMARY KEY,
+	status INTEGER,
+	userid INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS Intkeyval(
+	key TEXT PRIMARY KEY NOT NULL,
+	value INTEGER
+);

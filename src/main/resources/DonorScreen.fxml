@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
+   <children>
+      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Log out" />
+              <MenuItem mnemonicParsing="false" text="Konec..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vítejte uživateli" AnchorPane.topAnchor="33.0" />
+      <Text fx:id="user_nameMail" layoutX="94.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.0" />
+      <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše dary" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="722.2275390625" AnchorPane.topAnchor="55.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="user_donations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID daru" />
+          <TableColumn prefWidth="75.0" text="výše daru" />
+            <TableColumn prefWidth="124.0" text="darované vlasy" />
+            <TableColumn prefWidth="124.0" text="darováno dne" />
+        </columns>
+      </TableView>
+      <Text layoutX="14.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nový dar" AnchorPane.leftAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="user_donation_new_amount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše daru (CZK)" />
+      <TextField fx:id="user_donation_new_hair" layoutX="131.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="počet copů" />
+      <Button layoutX="250.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#donate" text="Darovat" />
+      <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše současné heslo">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="user_password_old" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="user_password_new" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo znovu">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="user_password_new_check" />
+            <Button mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Text layoutX="435.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Změna hesla" />
+      <Text layoutX="424.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše údaje">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <VBox layoutX="435.0" layoutY="74.0" prefHeight="104.0" prefWidth="151.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Váš e-mail:" />
+            <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
+            <TextField fx:id="user_email_new" />
+            <Button mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+   </children>
+</AnchorPane>
