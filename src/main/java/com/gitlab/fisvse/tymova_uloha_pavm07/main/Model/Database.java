@@ -6,16 +6,19 @@ import java.sql.SQLException;
 
 public class Database {
 	private static Connection conn;
+	private static String url;
 	
 	public static Connection getConnection() {
-		return conn;
-	}
-	
-	public static void connect(String url) {
 		try {
-			conn = DriverManager.getConnection(url);
+			return DriverManager.getConnection(Database.url);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+			return null;
 		}
+	}
+	
+	public static void init(String url) {
+		Database.url = url;
+		
 	}
 }

@@ -23,7 +23,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			// Database
-			Database.connect("jdbc:sqlite:src/main/resources/wigs.db");
+			Database.init("jdbc:sqlite:src/main/resources/wigs.db");
 			// UI
 			FXMLLoader loader = new FXMLLoader();
 			Scene scene = new Scene(new Pane(), 600, 400);
