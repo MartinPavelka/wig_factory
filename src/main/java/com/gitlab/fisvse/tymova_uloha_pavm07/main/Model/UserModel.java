@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.Role;
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.RoleLookup;
+import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
+
 public class UserModel extends Model {
 	public static final String TABLE = "Users";
 	
@@ -26,6 +30,44 @@ public class UserModel extends Model {
 		}
 		return true;
 
+	}
+	
+	public User login(String username, String password) {
+		String sql = "SELECT id,username,role,mail FROM " + TABLE + " WHERE password = ?;";
+	
+		try (Connection conn = Database.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, password);
+			ResultSet rs = pstmt.executeQuery();
+			if (!rs.next())
+				return null;
+			
+			int role = rs.getInt("role");
+			Role r = (Role)RoleLookup.getById(role);
+			Class cls = r.getUserCls();
+			User u = (User) cls.newInstance();
+			u.setUsername(rs.getString("role"));
+			u.setRole(rs.getInt("role"));
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return null;
+		
+		
+		
+		
 	}
 	
 	public String hashPassword(String password) {

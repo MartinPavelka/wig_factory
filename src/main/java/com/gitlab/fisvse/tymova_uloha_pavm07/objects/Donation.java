@@ -30,9 +30,5 @@ public class Donation {
 	public Donor getOwner () {
 		return owner;
 	}
-	
-	public String getOwnerName() {
-		return owner.getName();
-	}
 
 }

@@ -5,12 +5,6 @@ public class Admin {
 	String password;
 	String input;
 	
-	
-	Admin(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
-	
 	public void CreateUser() {
 		// Bude pracovat s SQLite
 	}

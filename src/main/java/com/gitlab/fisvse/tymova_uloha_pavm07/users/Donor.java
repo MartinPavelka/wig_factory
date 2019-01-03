@@ -9,11 +9,6 @@ public class Donor  extends User {
 	int amount;
 	String type;
 	
-	Donor(String name, String username, String password, boolean gender) {
-		super(name, username, password, gender);
-		donate(amount, type);
-	}
-	
 	public void donate(int amount, String type) {
 		Donation donation = new Donation(type, amount, this);
 		donations.add(donation);

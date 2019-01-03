@@ -4,41 +4,43 @@ import com.gitlab.fisvse.tymova_uloha_pavm07.objects.*;
 
 public class User {
 
-	private String name;
+	private int id;
 	private String username;
-	private String password;
-	private boolean gender; // 0 - female, 1 - male
+	private int role;
+	private String mail;
 	
-	User(String name, String username, String password, boolean gender) {
-		this.name = name;
+	User() {
+		
+	}
+	User(int id, String username, String password, int role, String mail) {
 		this.username = username;
-		this.password = password;
-		this.gender = gender; 
+		this.role = role; 
+		this.mail = mail;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
+	public int getRole() {
+		return role;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setRole(int role) {
+		this.role = role;
 	}
-	public boolean isgender() {
-		return gender;
+	public String getMail() {
+		return mail;
 	}
-	public void setgender(boolean gender) {
-		this.gender = gender;
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

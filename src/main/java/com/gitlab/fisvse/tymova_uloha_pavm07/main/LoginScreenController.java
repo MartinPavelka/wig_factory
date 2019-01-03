@@ -2,7 +2,8 @@ package com.gitlab.fisvse.tymova_uloha_pavm07.main;
 
 import java.util.HashMap;
 
-import com.gitlab.fisvse.tymova_uloha_pavm07.enums.Roles;
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.Lookup;
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.RoleLookup;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
 
 import javafx.fxml.FXML;
@@ -20,26 +21,19 @@ public class LoginScreenController extends Controller {
 					inputPassword;
 	@FXML ComboBox<String> comboboxRole;
 	
-	private HashMap<String, String> roleMap = new HashMap<>();
-
-
 	// INIT
 
 	public void init() {
-		initRoleMap();
 		initComboBox();
 		clear();
 		comboboxRole.getSelectionModel().selectLast();
 	}
-	private void initRoleMap() {
-		roleMap.put("Pacient", "PATIENT");
-		roleMap.put("Donor", "DONOR");
-	}
-	@SuppressWarnings("unchecked")
+
 	private void initComboBox() {
-		for (String key : roleMap.keySet()) {
-			comboboxRole.getItems().add(key);
-		}
+		System.out.println("asdfasdfasdf");
+		System.out.println(RoleLookup.getByStrId("DONOR"));
+		comboboxRole.getItems().add(RoleLookup.getByStrId("DONOR").getName());
+		comboboxRole.getItems().add(RoleLookup.getByStrId("PATIENT").getName());
 	}
 
 	//
@@ -53,18 +47,22 @@ public class LoginScreenController extends Controller {
 	}
 
 	public void onClickLogin() {
-//		this.router.setRoute("donor");
+		UserModel model = new UserModel();
+		model.login(
+			inputUsername.getText(),
+			inputPassword.getText()
+		);
 	}
 	
 	public void onClickRegister() {
 		UserModel model = new UserModel();
-		String role = roleMap.get(comboboxRole.getSelectionModel().getSelectedItem());
+		String role = comboboxRole.getSelectionModel().getSelectedItem();
 		
 		model.createUser(
 			inputRegUsername.getText(),
 			inputRegPassword.getText(),
 			inputRegMail.getText(),
-			Roles.getInstance().get(role)
+			RoleLookup.getByName(role).getId()
 		);
 		clear();
 	}
