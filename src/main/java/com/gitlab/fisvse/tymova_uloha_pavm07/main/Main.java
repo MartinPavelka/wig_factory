@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -20,6 +22,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			// Database
+			Database.connect("jdbc:sqlite:src/main/resources/wigs.db");
+			// UI
 			FXMLLoader loader = new FXMLLoader();
 			Scene scene = new Scene(new Pane(), 600, 400);
 			scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
@@ -29,7 +34,6 @@ public class Main extends Application {
 			Router router = new Router(scene);
 			router.addRoute("login", getClass().getResource("/LoginScreen.fxml"));
 			router.addRoute("donor", getClass().getResource("/DonorScreen.fxml"));
-			
 			router.setRoute("login");
 		} catch (Exception e) {
 			e.printStackTrace();

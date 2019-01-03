@@ -37,15 +37,15 @@
                      </font>
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="username:" />
-                  <TextField text="username" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:" />
-                  <TextField text="heslo" />
-                  <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="25.0" prefWidth="279.0" text="Přihlásit se">
+                  <TextField text="username" fx:id="inputUsername" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:"  />
+                  <TextField text="heslo" fx:id="inputPassword" />
+                  <Button mnemonicParsing="false" onMouseClicked="#onClickLogin" prefHeight="25.0" prefWidth="279.0" text="Přihlásit se">
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="14.0" />
                      </VBox.margin>
                   </Button>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
+                  <Region prefHeight="200.0" prefWidth="200.0" /> 
                </children>
                <HBox.margin>
                   <Insets left="14.0" right="7.0" />
@@ -62,14 +62,14 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Typ uživatele" />
                   <ComboBox prefWidth="150.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="username:" />
-                  <TextField text="username" />
+                  <TextField text="username" fx:id="inputRegUsername" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:" />
-                  <TextField text="heslo" />
+                  <TextField text="heslo" fx:id="inputRegPassword" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo znovu:" />
                   <TextField text="heslo znovu" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
-                  <TextField text="mail" />
-                  <Button mnemonicParsing="false" onMouseClicked="#register" prefHeight="25.0" prefWidth="298.0" text="Přihlásit se">
+                  <TextField text="mail" fx:id="inputRegMail" />
+                  <Button mnemonicParsing="false" onMouseClicked="#onClickRegister" prefHeight="25.0" prefWidth="298.0" text="Registrovat se">
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="14.0" />
                      </VBox.margin>
