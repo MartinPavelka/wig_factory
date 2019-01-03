@@ -59,10 +59,6 @@ public class LoginScreenController extends Controller {
 	public void onClickRegister() {
 		UserModel model = new UserModel();
 		String role = roleMap.get(comboboxRole.getSelectionModel().getSelectedItem());
-		System.out.println(role);
-		System.out.println(inputRegUsername.getText());
-		System.out.println(inputRegPassword.getText());
-		System.out.println(inputRegMail.getText());
 		
 		model.createUser(
 			inputRegUsername.getText(),
