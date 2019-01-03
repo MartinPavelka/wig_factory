@@ -60,13 +60,11 @@
                      </font>
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Typ uživatele" />
-                  <ComboBox prefWidth="150.0" />
+                  <ComboBox prefWidth="150.0" fx:id="comboboxRole" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="username:" />
                   <TextField text="username" fx:id="inputRegUsername" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:" />
                   <TextField text="heslo" fx:id="inputRegPassword" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo znovu:" />
-                  <TextField text="heslo znovu" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
                   <TextField text="mail" fx:id="inputRegMail" />
                   <Button mnemonicParsing="false" onMouseClicked="#onClickRegister" prefHeight="25.0" prefWidth="298.0" text="Registrovat se">
