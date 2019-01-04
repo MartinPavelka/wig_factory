@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="716.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="716.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
    <children>
-      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -33,21 +33,21 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="user_donations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
+      <TableView fx:id="projectsTable" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
         <columns>
-          <TableColumn prefWidth="82.0" text="ID kampaně" />
-          <TableColumn prefWidth="115.0" text="Jméno kampaně" />
-            <TableColumn prefWidth="78.0" text="Začátek " />
-            <TableColumn prefWidth="132.0" text="Celkové prostředky" />
+          <TableColumn fx:id="columnProjectID" prefWidth="82.0" text="ID kampaně" />
+          <TableColumn fx:id="columnProjectName" prefWidth="115.0" text="Jméno kampaně" />
+            <TableColumn fx:id="columnProjectStart" prefWidth="78.0" text="Začátek " />
+            <TableColumn fx:id="columnProjectBudget" prefWidth="132.0" text="Celkové prostředky" />
         </columns>
       </TableView>
-      <Text layoutX="14.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Přidělit peníze na kampaň" AnchorPane.leftAnchor="14.0">
+      <Text layoutX="14.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Přidělit peníze na kampaň" AnchorPane.leftAnchor="14.0">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
       </Text>
       <TextField fx:id="user_donation_new_amount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše příspěvku (CZK)" />
-      <Button layoutX="287.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#donate" text="Přidělit" />
+      <Button fx:id="assignMoney" layoutX="287.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#donate" text="Přidělit" />
       <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše současné heslo">
@@ -68,7 +68,7 @@
                </VBox.margin>
             </Text>
             <TextField fx:id="user_password_new_check" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -87,40 +87,18 @@
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
             <TextField fx:id="user_email_new" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail" AnchorPane.topAnchor="10.0">
+            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail" AnchorPane.topAnchor="10.0">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <TableView fx:id="user_donations1" layoutX="14.0" layoutY="329.0" prefHeight="200.0" prefWidth="408.0" AnchorPane.topAnchor="390.0">
-         <columns>
-            <TableColumn prefWidth="82.0" text="ID pacienta" />
-            <TableColumn prefWidth="115.0" text="Jméno pacienta" />
-            <TableColumn prefWidth="78.0" text="Pořadí" />
-            <TableColumn prefWidth="132.0" text="Stav" />
-         </columns>
-      </TableView>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
-      <Text layoutX="14.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacienti" AnchorPane.topAnchor="369.0">
-         <font>
-            <Font size="14.0" />
-         </font></Text>
-      <Text layoutX="14.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Změnit stav žádosti" AnchorPane.topAnchor="595.0">
-         <font>
-            <Font size="14.0" />
-         </font></Text>
-      <TextField layoutX="15.0" layoutY="584.0" prefHeight="27.0" prefWidth="110.0" text="Id pacienta" AnchorPane.topAnchor="615.0" />
-      <Button layoutX="300.0" layoutY="584.0" mnemonicParsing="false" text="Změnit" AnchorPane.topAnchor="615.0" />
-      <Text layoutX="15.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ukončit projekt" AnchorPane.topAnchor="340.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <ComboBox layoutX="130.0" layoutY="335.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox layoutX="130.0" layoutY="302.0" prefWidth="150.0" />
-      <ComboBox layoutX="135.0" layoutY="584.0" prefWidth="150.0" AnchorPane.topAnchor="615.0" />
-      <Button layoutX="288.0" layoutY="335.0" mnemonicParsing="false" text="Ukončit" />
+      <Button fx:id="logout" layoutX="149.0" layoutY="373.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="149.0" />
+      <Text layoutX="14.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ukončit projekt" AnchorPane.topAnchor="335.0" />
+      <ComboBox fx:id="projectsBox" layoutX="130.0" layoutY="335.0" prefHeight="27.0" prefWidth="150.0" />
+      <ComboBox fx:id="projectsBox" layoutX="130.0" layoutY="302.0" prefWidth="150.0" />
+      <Button fx:id="endProject" layoutX="288.0" layoutY="335.0" mnemonicParsing="false" text="Ukončit" />
+      <Button fx:id="manageRequests" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" text="Spravovat žádosti" AnchorPane.bottomAnchor="5.0" />
    </children>
 </AnchorPane>

@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="537.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="537.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
    <children>
-      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -33,15 +33,15 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="user_donations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
+      <TableView fx:id="users" layoutX="14.0" layoutY="75.0" prefHeight="145.0" prefWidth="408.0">
         <columns>
-          <TableColumn prefWidth="68.0" text="ID" />
-          <TableColumn prefWidth="116.0" text="jméno" />
-            <TableColumn prefWidth="143.0" text="e-mail" />
-            <TableColumn text="role" />
+          <TableColumn fx:id="columnID" prefWidth="68.0" text="ID" />
+          <TableColumn fx:id="columnName" prefWidth="116.0" text="jméno" />
+            <TableColumn fx:id="columnMail" prefWidth="143.0" text="e-mail" />
+            <TableColumn fx:id="columnRole" text="role" />
         </columns>
       </TableView>
-      <Text layoutX="14.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nový uživatel" AnchorPane.leftAnchor="14.0">
+      <Text layoutX="13.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nový uživatel" AnchorPane.leftAnchor="13.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -66,7 +66,7 @@
                </VBox.margin>
             </Text>
             <TextField fx:id="user_password_new_check" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -85,22 +85,22 @@
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
             <TextField fx:id="user_email_new" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
+            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
-      <Text layoutX="14.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jméno:" />
-      <TextField layoutX="69.0" layoutY="306.0" />
-      <Text layoutX="14.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
-      <TextField layoutX="69.0" layoutY="339.0" />
-      <Text layoutX="14.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role:" />
-      <ComboBox layoutX="69.0" layoutY="370.0" prefWidth="150.0" />
-      <Text layoutX="14.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heslo:" />
-      <TextField layoutX="69.0" layoutY="404.0" />
-      <Button layoutX="14.0" layoutY="439.0" mnemonicParsing="false" text="Založit nového uživatele" />
+      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+      <Text layoutX="13.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jméno:" />
+      <TextField fx:id="newUserName" layoutX="69.0" layoutY="249.0" />
+      <Text layoutX="14.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <TextField fx:id="newUserMail" layoutX="69.0" layoutY="280.0" />
+      <Text layoutX="18.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role:" />
+      <ComboBox fx:id="newUserRole" layoutX="69.0" layoutY="314.0" prefWidth="150.0" />
+      <Text layoutX="300.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heslo:" />
+      <TextField fx:id="newUserPassword" layoutX="246.0" layoutY="280.0" />
+      <Button fx:id="createNewUser" layoutX="246.0" layoutY="314.0" mnemonicParsing="false" text="Založit nového uživatele" />
    </children>
 </AnchorPane>
