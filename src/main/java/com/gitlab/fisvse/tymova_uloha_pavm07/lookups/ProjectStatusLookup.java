@@ -15,10 +15,8 @@ public class ProjectStatusLookup extends Lookup{
 	@Override
 	public void init() {
 		items = Arrays.asList(
-				(LookupItem)new ProjectStatus(0, "ADMIN", "Administrator"),
-				(LookupItem)new ProjectStatus(1, "EMPLOYEE", "Zamestnanec"),
-				(LookupItem)new ProjectStatus(2, "DONOR", "Donor"),
-				(LookupItem)new ProjectStatus(3, "PATIENT", "Pacient")
+				(LookupItem)new ProjectStatus(0, "CREATED", "Nezaplacen"),
+				(LookupItem)new ProjectStatus(1, "PAID", "Zaplacen")
 		);
 	}
 }
