@@ -56,6 +56,7 @@ public class LoginScreenController extends Controller {
 		
 		// No such user
 		if (u == null) {
+			alertErrorAndWait("Špatná kombinace jména a hesla.");
 			return;
 		}
 		
@@ -89,6 +90,8 @@ public class LoginScreenController extends Controller {
 			inputRegMail.getText(),
 			roleLookup.getByName(role).getId()
 		);
+		
+		alertInfoAndWait("Uživatel vytvořen.");
 		clear();
 	}
 }
