@@ -14,4 +14,8 @@ public class AdminScreenController {
 	public void register() {
 		
 	}
+
+	public void onClickCreateNewUser() {
+		//založení nového uživatele a uložení do DB
+	}
 }

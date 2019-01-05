@@ -27,13 +27,13 @@
         </menus>
       </MenuBar>
       <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vítejte uživateli" AnchorPane.topAnchor="33.0" />
-      <Text fx:id="user_nameMail" layoutX="118.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="32.431640625" />
+      <Text fx:id="userNameMail" layoutX="118.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="32.431640625" />
       <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uživatelé" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="722.2275390625" AnchorPane.topAnchor="55.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="users" layoutX="14.0" layoutY="75.0" prefHeight="145.0" prefWidth="408.0">
+      <TableView fx:id="tableUsers" layoutX="14.0" layoutY="75.0" prefHeight="145.0" prefWidth="408.0">
         <columns>
           <TableColumn fx:id="columnID" prefWidth="68.0" text="ID" />
           <TableColumn fx:id="columnName" prefWidth="116.0" text="jméno" />
@@ -53,20 +53,20 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_old" />
+            <TextField fx:id="inputUserPasswordOld" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new" />
+            <TextField fx:id="inputUserPasswordNew" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo znovu">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new_check" />
-            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <TextField fx:id="inputUserPasswordNewCheck" />
+            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#onClickChangeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -85,7 +85,7 @@
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
             <TextField fx:id="user_email_new" />
-            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
+            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#onClickChangeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
@@ -94,13 +94,13 @@
       </VBox>
       <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
       <Text layoutX="13.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jméno:" />
-      <TextField fx:id="newUserName" layoutX="69.0" layoutY="249.0" />
+      <TextField fx:id="inputNewUserName" layoutX="69.0" layoutY="249.0" />
       <Text layoutX="14.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
-      <TextField fx:id="newUserMail" layoutX="69.0" layoutY="280.0" />
+      <TextField fx:id="inputNewUserMail" layoutX="69.0" layoutY="280.0" />
       <Text layoutX="18.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role:" />
       <ComboBox fx:id="newUserRole" layoutX="69.0" layoutY="314.0" prefWidth="150.0" />
       <Text layoutX="300.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heslo:" />
-      <TextField fx:id="newUserPassword" layoutX="246.0" layoutY="280.0" />
-      <Button fx:id="createNewUser" layoutX="246.0" layoutY="314.0" mnemonicParsing="false" text="Založit nového uživatele" />
+      <TextField fx:id="inputNewUserPassword" layoutX="246.0" layoutY="280.0" />
+      <Button fx:id="createNewUser" layoutX="246.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#onClickCreateNewUser" text="Založit nového uživatele" />
    </children>
 </AnchorPane>

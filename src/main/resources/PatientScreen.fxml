@@ -37,20 +37,20 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_old" />
+            <TextField fx:id="inputUserPasswordOld" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new" />
+            <TextField fx:id="inputUserPasswordNew" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo znovu">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new_check" />
-            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <TextField fx:id="inputUserPasswordNewCheck" />
+            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#onClickChangeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -68,16 +68,16 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Váš e-mail:" />
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
-            <TextField fx:id="user_email_new" />
-            <Button fx:id="changeEmail" mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
+            <TextField fx:id="inputUserEmailNew" />
+            <Button fx:id="changeEmail" mnemonicParsing="false" onMouseClicked="#onClickChangeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
-      <Button fx:id="createNewRequest" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" text="Vytvořit novou žádost" />
+      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" onMouseClicked="#onClickLogout"/>
+      <Button fx:id="createNewOrder" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" text="Vytvořit novou žádost" onMouseClicked="#onClickCreateNewOrder" />
       <Text fx:id="orderStatus" layoutX="44.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderStatus" wrappingWidth="132.99999833106995" />
       <Text fx:id="requestStatus1" layoutX="16.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stav:" wrappingWidth="41.999998331069946" />
    </children>
