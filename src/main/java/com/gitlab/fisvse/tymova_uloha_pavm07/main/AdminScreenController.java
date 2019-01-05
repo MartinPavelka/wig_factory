@@ -116,6 +116,10 @@ public class AdminScreenController extends Controller{
 		updateUsersList();
 	}
 	
+	public void onClickLogout() {
+		logout();
+	}
+	
 	private void clear() {
 		clearNewUser();
 	}

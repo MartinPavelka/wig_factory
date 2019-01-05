@@ -106,7 +106,7 @@
             </Button>
          </children>
       </VBox>
-      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" onMouseClicked="#onClickLogout" />
       <Text layoutX="13.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jméno:" />
       <TextField fx:id="inputNewUserName" layoutX="69.0" layoutY="249.0" />
       <Text layoutX="14.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
