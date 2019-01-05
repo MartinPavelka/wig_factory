@@ -11,11 +11,20 @@ public class PatientScreenController {
 		
 	}
 	
-	public void changeUserPassword() {
+	public void onClickChangeUserPassword() {
 		
 	}
 	
-	public void changeUserMail() {
+	public void onClickChangeUserMail() {
 		
 	}
+
+	public void onClickLogout() {
+
+	}
+
+	public void onClickCreateNewOrder() {
+		// založit žádost o parukun a nahrát do DB
+	}
+
 }
