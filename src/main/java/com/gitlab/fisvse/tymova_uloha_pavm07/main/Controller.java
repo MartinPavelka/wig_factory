@@ -24,8 +24,19 @@ public class Controller {
 		alertErrorAndWait(header, null);
 	}
 	protected void alertErrorAndWait(String header, String text) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Error");
+		alertAndWait(AlertType.ERROR, "Error", header, text);
+	}
+	
+	protected void alertInfoAndWait(String header) {
+		alertErrorAndWait(header, null);
+	}
+	protected void alertInfoAndWait(String header, String text) {
+		alertAndWait(AlertType.INFORMATION, "Information", header, text);
+	}
+	
+	protected void alertAndWait(AlertType type, String title, String header, String text) {
+		Alert alert = new Alert(type);
+		alert.setTitle(title);
 		alert.setHeaderText(header);
 		if (text != null)
 			alert.setContentText(text);
