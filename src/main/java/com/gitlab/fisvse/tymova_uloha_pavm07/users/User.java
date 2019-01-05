@@ -1,5 +1,6 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07.users;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.objects.*;
 
 public class User {
@@ -41,6 +42,10 @@ public class User {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public boolean setPassword(String password) {
+		return new UserModel().setPassword(id, password);
 	}
 	
 	

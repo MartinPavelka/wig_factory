@@ -66,6 +66,21 @@ public class UserModel extends Model {
 		return null;
 	}
 	
+	public boolean setPassword(int id, String password) {
+		String hashedPassword = hashPassword(password);
+		String sql = "UPDATE " + TABLE + " SET password = ? WHERE id = ?;";		
+		try (Connection conn = Database.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, hashedPassword);
+			pstmt.setInt(2, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
 	public String hashPassword(String password) {
 		return password;
 	}
