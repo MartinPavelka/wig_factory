@@ -48,7 +48,7 @@ public class UserModel extends Model {
 			Class cls = r.getUserCls();
 			User u = (User) cls.newInstance();
 			u.setId(rs.getInt("id"));
-			u.setUsername(rs.getString("role"));
+			u.setUsername(rs.getString("username"));
 			u.setRole(rs.getInt("role"));
 			u.setMail(rs.getString("mail"));
 			return u;
