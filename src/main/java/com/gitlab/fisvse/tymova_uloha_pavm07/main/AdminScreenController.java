@@ -82,8 +82,20 @@ public class AdminScreenController extends Controller{
 		clearPasswordChange();
 		alertInfoAndWait("Heslo zmeneno.");
 	}
+	
 	public void onClickChangeUserMail() {
+		String mail = inputUserEmailNew.getText();
+
+		if(!new UserModel().setMail(app.currentUser.getId(), mail)){
+			alertErrorAndWait("Email nelze zmenit", "Objevila se neocekavana chyba, proto nic nebude...");
+			return;
+		}
 		
+		app.currentUser.setMail(mail);
+		
+		clearEmailChange();
+		alertInfoAndWait("Email zmenen.");
+		updateUsersList();
 	}
 	
 	public void onClickCreateNewUser() {
@@ -112,6 +124,10 @@ public class AdminScreenController extends Controller{
 		inputNewUserName.clear();
 		inputNewUserPassword.clear();
 		inputNewUserMail.clear();
+	}
+	
+	private void clearEmailChange() {
+		inputUserEmailNew.clear();
 	}
 	
 	private void clearPasswordChange() {
