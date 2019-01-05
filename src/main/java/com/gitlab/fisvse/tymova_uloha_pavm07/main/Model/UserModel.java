@@ -9,11 +9,43 @@ import java.sql.Statement;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.Role;
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.RoleLookup;
+import com.gitlab.fisvse.tymova_uloha_pavm07.objects.Donation;
 import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class UserModel extends Model {
 	public static final String TABLE = "Users";
 	
+	
+	public ObservableList<User> getAll() {
+		String sql = "SELECT id,username,role,mail FROM " + TABLE + ";";	
+
+		ObservableList<User> usersList = FXCollections.observableArrayList();
+		
+		try (Connection conn = Database.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			while (rs.next()) {
+				System.out.println(rs.getInt("id"));
+				User u = new User(
+						rs.getInt("id"),
+						rs.getString("username"),
+						rs.getInt("role"),
+						rs.getString("mail")
+				);
+				System.out.println(u.getId());
+				System.out.println(u.getPropId());
+				usersList.add(u);
+			}
+			return usersList;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
 	public boolean createUser(String username, String password, String mail, Integer role) {
 		String hashedPassword = hashPassword(password);
 

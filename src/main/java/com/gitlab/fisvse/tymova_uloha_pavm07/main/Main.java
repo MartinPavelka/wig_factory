@@ -36,6 +36,7 @@ public class Main extends Application {
 			Router router = new Router(this, scene);
 			router.addRoute("login", getClass().getResource("/LoginScreen.fxml"));
 			router.addRoute("donor", getClass().getResource("/DonorScreen.fxml"));
+			router.addRoute("admin", getClass().getResource("/AdminScreen.fxml"));
 			router.setRoute("login");
 		} catch (Exception e) {
 			e.printStackTrace();

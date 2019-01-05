@@ -13,8 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.AdminScreenController">
    <children>
       <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -35,10 +37,22 @@
       </Text>
       <TableView fx:id="tableUsers" layoutX="14.0" layoutY="75.0" prefHeight="145.0" prefWidth="408.0">
         <columns>
-          <TableColumn fx:id="columnID" prefWidth="68.0" text="ID" />
-          <TableColumn fx:id="columnName" prefWidth="116.0" text="jméno" />
-            <TableColumn fx:id="columnMail" prefWidth="143.0" text="e-mail" />
-            <TableColumn fx:id="columnRole" text="role" />
+          <TableColumn fx:id="columnID" prefWidth="68.0" text="ID" >
+            <cellValueFactory><PropertyValueFactory property="propId" />
+            </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="columnName" prefWidth="116.0" text="jméno" >
+            <cellValueFactory><PropertyValueFactory property="propUsername" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn fx:id="columnMail" prefWidth="143.0" text="e-mail" >
+            <cellValueFactory><PropertyValueFactory property="propMail" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn fx:id="columnRole" text="role" >
+            <cellValueFactory><PropertyValueFactory property="propRole" />
+            </cellValueFactory>
+          </TableColumn>
         </columns>
       </TableView>
       <Text layoutX="13.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nový uživatel" AnchorPane.leftAnchor="13.0">
@@ -98,7 +112,7 @@
       <Text layoutX="14.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
       <TextField fx:id="inputNewUserMail" layoutX="69.0" layoutY="280.0" />
       <Text layoutX="18.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role:" />
-      <ComboBox fx:id="newUserRole" layoutX="69.0" layoutY="314.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboboxNewUserRole" layoutX="69.0" layoutY="314.0" prefWidth="150.0" />
       <Text layoutX="300.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heslo:" />
       <TextField fx:id="inputNewUserPassword" layoutX="246.0" layoutY="280.0" />
       <Button fx:id="createNewUser" layoutX="246.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#onClickCreateNewUser" text="Založit nového uživatele" />
