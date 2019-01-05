@@ -37,6 +37,7 @@ public class Main extends Application {
 			router.addRoute("login", getClass().getResource("/LoginScreen.fxml"));
 			router.addRoute("donor", getClass().getResource("/DonorScreen.fxml"));
 			router.addRoute("admin", getClass().getResource("/AdminScreen.fxml"));
+			router.addRoute("patient", getClass().getResource("/PatientScreen.fxml"));
 			router.setRoute("login");
 		} catch (Exception e) {
 			e.printStackTrace();
