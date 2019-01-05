@@ -12,6 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
 
 
 <AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
@@ -35,10 +37,22 @@
       </Text>
       <TableView fx:id="tableUserDonations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID daru" />
-          <TableColumn prefWidth="75.0" text="výše daru" />
-            <TableColumn prefWidth="124.0" text="darované vlasy" />
-            <TableColumn prefWidth="124.0" text="darováno dne" />
+          <TableColumn prefWidth="75.0" text="ID daru">
+            <cellValueFactory><PropertyValueFactory property="propId" />
+            </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="75.0" text="výše daru" >
+            <cellValueFactory><PropertyValueFactory property="propAmount" />
+            </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="124.0" text="darované vlasy" >
+            <cellValueFactory><PropertyValueFactory property="propHair" />
+            </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="124.0" text="darováno dne" >
+            <cellValueFactory><PropertyValueFactory property="propCreated" />
+            </cellValueFactory>
+          </TableColumn>
         </columns>
       </TableView>
       <Text layoutX="14.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nový dar" AnchorPane.leftAnchor="14.0">
