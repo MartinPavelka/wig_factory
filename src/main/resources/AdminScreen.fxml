@@ -20,8 +20,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Log out" />
-              <MenuItem mnemonicParsing="false" text="Konec..." />
+                  <MenuItem fx:id="logoutFromMenu" mnemonicParsing="false" text="Log out" />
+              <MenuItem fx:id="endApplication" mnemonicParsing="false" text="Konec..." />
             </items>
           </Menu>
         </menus>
@@ -84,7 +84,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Váš e-mail:" />
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
-            <TextField fx:id="user_email_new" />
+            <TextField fx:id="inputUserEmailNew" />
             <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#onClickChangeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
