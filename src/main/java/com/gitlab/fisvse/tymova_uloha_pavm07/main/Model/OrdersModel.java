@@ -38,8 +38,8 @@ public class OrdersModel extends Model {
 		
 		try (	Connection conn = DriverManager.getConnection(Database.url);
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setInt(1, id);
-			pstmt.setInt(2, status);
+			pstmt.setInt(1, status);
+			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

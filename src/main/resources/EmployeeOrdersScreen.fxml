@@ -78,7 +78,7 @@
 				<Font size="14.0" />
 			</font>
 		</Text>
-		<Button fx:id="changeStatus" layoutX="241.0" layoutY="321.0"
+		<Button fx:id="buttonChangeStatus" layoutX="241.0" layoutY="321.0"
 			mnemonicParsing="false" onMouseClicked="#onClickChangeOrderStatus"
 			text="Změnit stav žádosti" AnchorPane.topAnchor="321.0" />
 		<ComboBox fx:id="comboBoxNewStatus" layoutX="214.0"
