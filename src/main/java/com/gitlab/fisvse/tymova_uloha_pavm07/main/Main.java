@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.IntkeyvalModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
 
 import javafx.application.Application;
@@ -26,6 +27,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			// Init model
+			IntkeyvalModel kvModel = new IntkeyvalModel();
+			kvModel.init();
 			// UI
 			FXMLLoader loader = new FXMLLoader();
 			Scene scene = new Scene(new Pane(), 600, 400);

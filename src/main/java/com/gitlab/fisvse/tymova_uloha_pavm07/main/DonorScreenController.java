@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.DonationsModel;
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.IntkeyvalModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.objects.Donation;
 
@@ -93,6 +94,10 @@ public class DonorScreenController extends Controller {
 				hairAmount)) {
 			alertErrorAndWait("Nelze pridat dar", "Objevila se neocekavana chyba, proto nic nebude...");
 		}
+		IntkeyvalModel kvModel = new IntkeyvalModel();
+		kvModel.add("money", moneyAmount);
+		kvModel.add("hair", hairAmount);
+		
 		
 		updateDonationsList();
 	}
