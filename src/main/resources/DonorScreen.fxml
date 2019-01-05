@@ -27,13 +27,13 @@
         </menus>
       </MenuBar>
       <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vítejte uživateli" AnchorPane.topAnchor="33.0" />
-      <Text fx:id="user_nameMail" layoutX="94.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.0" />
+      <Text fx:id="usernameMail" layoutX="94.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.0" />
       <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše dary" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="722.2275390625" AnchorPane.topAnchor="55.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="user_donations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
+      <TableView fx:id="tableUserDonations" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
         <columns>
           <TableColumn prefWidth="75.0" text="ID daru" />
           <TableColumn prefWidth="75.0" text="výše daru" />
@@ -46,9 +46,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="user_donation_new_amount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše daru (CZK)" />
-      <TextField fx:id="user_donation_new_hair" layoutX="131.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="počet copů" />
-      <Button layoutX="250.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#donate" text="Darovat" />
+      <TextField fx:id="inputUserDonationNewAmount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše daru (CZK)" />
+      <TextField fx:id="inputUserDonationNewHair" layoutX="131.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="počet copů" />
+      <Button layoutX="250.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#onClickDonate" text="Darovat" />
       <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše současné heslo">
@@ -56,20 +56,20 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_old" />
+            <TextField fx:id="inputUserPasswordOld" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new" />
+            <TextField fx:id="inputUserPasswordNew" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo znovu">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new_check" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <TextField fx:id="inputUserPasswordNewCheck" />
+            <Button mnemonicParsing="false" onMouseClicked="#onClickChangeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -85,10 +85,10 @@
       <VBox layoutX="435.0" layoutY="74.0" prefHeight="104.0" prefWidth="151.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Váš e-mail:" />
-            <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
+            <Text fx:id="userEmailOld" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
-            <TextField fx:id="user_email_new" />
-            <Button mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
+            <TextField fx:id="inputUserEmailNew" />
+            <Button mnemonicParsing="false" onMouseClicked="#onClickChangeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
