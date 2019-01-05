@@ -95,6 +95,6 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" onMouseClicked="#onClickLogout" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
    </children>
 </AnchorPane>

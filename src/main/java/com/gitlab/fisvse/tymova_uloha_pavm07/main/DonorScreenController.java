@@ -21,4 +21,7 @@ public class DonorScreenController extends Controller {
 	public void changeUserMail() {
 		
 	}
+	public void onClickLogout() {
+		logout();
+	}
 }

@@ -31,4 +31,9 @@ public class Controller {
 			alert.setContentText(text);
 		alert.showAndWait();
 	}
+	
+	protected void logout() {
+		this.app.currentUser = null;
+		this.router.setRoute("login");
+	}
 }
