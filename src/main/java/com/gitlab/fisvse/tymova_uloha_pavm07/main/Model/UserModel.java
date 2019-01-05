@@ -46,12 +46,14 @@ public class UserModel extends Model {
 			Role r = (Role)RoleLookup.getById(role);
 			Class cls = r.getUserCls();
 			User u = (User) cls.newInstance();
+			u.setId(rs.getInt("id"));
 			u.setUsername(rs.getString("role"));
 			u.setRole(rs.getInt("role"));
+			u.setMail(rs.getString("mail"));
+			return u;
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,14 +62,7 @@ public class UserModel extends Model {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
 		return null;
-		
-		
-		
-		
 	}
 	
 	public String hashPassword(String password) {

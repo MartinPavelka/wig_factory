@@ -5,6 +5,7 @@ import java.util.HashMap;
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.Lookup;
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.RoleLookup;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
+import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -48,10 +49,12 @@ public class LoginScreenController extends Controller {
 
 	public void onClickLogin() {
 		UserModel model = new UserModel();
-		model.login(
+		User u = model.login(
 			inputUsername.getText(),
 			inputPassword.getText()
 		);
+		
+		System.out.println(u.getClass().getSimpleName());
 	}
 	
 	public void onClickRegister() {
