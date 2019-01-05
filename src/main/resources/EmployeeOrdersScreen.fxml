@@ -36,7 +36,7 @@
             <TableColumn fx:id="columnRequestStatus" prefWidth="221.0" text="Stav" />
          </columns>
       </TableView>
-      <Button fx:id="logout" layoutX="71.0" layoutY="368.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="71.0" />
+      <Button fx:id="logout" layoutX="71.0" layoutY="368.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="71.0" onMouseClicked="#onClickLogout" />
       <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacienti" AnchorPane.topAnchor="56.46484375">
          <font>
             <Font size="14.0" />
@@ -45,9 +45,9 @@
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField fx:id="patientID" layoutX="12.0" layoutY="311.0" prefHeight="27.0" prefWidth="110.0" text="Id pacienta" AnchorPane.topAnchor="311.0" />
-      <Button fx:id="changeStatus" layoutX="286.0" layoutY="311.0" mnemonicParsing="false" text="Změnit" AnchorPane.topAnchor="311.0" />
+      <TextField fx:id="inputPatientID" layoutX="12.0" layoutY="311.0" prefHeight="27.0" prefWidth="110.0" text="Id pacienta" AnchorPane.topAnchor="311.0" />
+      <Button fx:id="changeStatus" layoutX="286.0" layoutY="311.0" mnemonicParsing="false" text="Změnit" AnchorPane.topAnchor="311.0" onMouseClicked="#onClickChangeOrderStatus"/>
       <ComboBox fx:id="newStatus" layoutX="130.0" layoutY="311.0" prefWidth="150.0" AnchorPane.topAnchor="311.0" />
-      <Button fx:id="goBack" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Zpět" AnchorPane.bottomAnchor="5.0" />
+      <Button fx:id="goBack" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Zpět" AnchorPane.bottomAnchor="5.0" onMouseClicked="#onClickGoBack"/>
    </children>
 </AnchorPane>

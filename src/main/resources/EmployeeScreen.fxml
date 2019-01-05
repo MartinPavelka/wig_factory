@@ -46,8 +46,8 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextField fx:id="user_donation_new_amount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše příspěvku (CZK)" />
-      <Button fx:id="assignMoney" layoutX="287.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#donate" text="Přidělit" />
+      <TextField fx:id="inputUserDonationNewAmount" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="110.0" text="Výše příspěvku (CZK)" />
+      <Button fx:id="assignMoney" layoutX="287.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#onClickDonate" text="Přidělit" />
       <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše současné heslo">
@@ -55,20 +55,20 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_old" />
+            <TextField fx:id="inputUserPasswordOld" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new" />
+            <TextField fx:id="inputUserPasswordNew" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vaše nové heslo znovu">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="user_password_new_check" />
-            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#changeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
+            <TextField fx:id="inputUserPasswordNewCheck" />
+            <Button fx:id="changePassword" mnemonicParsing="false" onMouseClicked="#onClickChangeUserPassword" prefHeight="25.0" prefWidth="145.0" text="Změnit heslo">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -86,19 +86,19 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Váš e-mail:" />
             <Text fx:id="user_email_old" strokeType="OUTSIDE" strokeWidth="0.0" text="DonorMail@mail.com" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový e-mail:" />
-            <TextField fx:id="user_email_new" />
-            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#changeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail" AnchorPane.topAnchor="10.0">
+            <TextField fx:id="inputUserEmailNew" />
+            <Button fx:id="changeMail" mnemonicParsing="false" onMouseClicked="#onClickChangeUserMail" prefHeight="25.0" prefWidth="148.0" text="Změnit e-mail" AnchorPane.topAnchor="10.0">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Button fx:id="logout" layoutX="149.0" layoutY="373.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="149.0" />
+      <Button fx:id="logout" layoutX="149.0" layoutY="373.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="149.0" onMouseClicked="#onClickLogout"/>
       <Text layoutX="14.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ukončit projekt" AnchorPane.topAnchor="335.0" />
       <ComboBox fx:id="projectsBox" layoutX="130.0" layoutY="335.0" prefHeight="27.0" prefWidth="150.0" />
-      <ComboBox fx:id="projectsBox" layoutX="130.0" layoutY="302.0" prefWidth="150.0" />
-      <Button fx:id="endProject" layoutX="288.0" layoutY="335.0" mnemonicParsing="false" text="Ukončit" />
-      <Button fx:id="manageRequests" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" text="Spravovat žádosti" AnchorPane.bottomAnchor="5.0" />
+      <ComboBox fx:id="projectsBox2" layoutX="130.0" layoutY="302.0" prefWidth="150.0" />
+      <Button fx:id="endProject" layoutX="288.0" layoutY="335.0" mnemonicParsing="false" text="Ukončit" onMouseClicked="#onClickEndProject" />
+      <Button fx:id="manageRequests" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" text="Spravovat žádosti" AnchorPane.bottomAnchor="5.0" onMouseClicked="#onClickOpenRequests" />
    </children>
 </AnchorPane>

@@ -24,7 +24,7 @@ public class PatientScreenController {
 	}
 
 	public void onClickCreateNewOrder() {
-		// založit žádost o parukun a nahrát do DB
+		// založit žádost o paruku a nahrát do DB
 	}
 
 }
