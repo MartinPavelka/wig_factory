@@ -81,6 +81,20 @@ public class UserModel extends Model {
 		return true;
 	}
 	
+	public boolean setMail(int id, String mail) {
+		String sql = "UPDATE " + TABLE + " SET mail = ? WHERE id = ?;";		
+		try (Connection conn = Database.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, mail);
+			pstmt.setInt(2, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
 	public String hashPassword(String password) {
 		return password;
 	}

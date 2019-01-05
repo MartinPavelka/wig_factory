@@ -19,8 +19,7 @@ public class DonorScreenController extends Controller {
 					inputUserEmailNew;
 
 	public void init() {
-
-		System.out.println("YUUUPPPIIIIIIII!!!! Donor");
+		clearAll();
 	}
 	
 	public void donate() {
@@ -53,7 +52,14 @@ public class DonorScreenController extends Controller {
 	}
 	
 	public void onClickChangeUserMail() {
+		String mail = inputUserEmailNew.getText();
+		if(!app.currentUser.setMail(mail)) {
+			alertErrorAndWait("Email nelze zmenit", "Objevila se neocekavana chyba, proto nic nebude...");
+			return;
+		}
 		
+		clearEmailChange();
+		alertInfoAndWait("Email zmenen.");
 	}
 	
 	public void onClickDonate() {
@@ -63,8 +69,17 @@ public class DonorScreenController extends Controller {
 	public void onClickLogout() {
 		logout();
 	}
-	private void clearGift() {
-		;
+	private void clearAll() {
+		clearDonation();
+		clearEmailChange();
+		clearPasswordChange();
+	}
+	private void clearDonation() {
+		inputUserDonationNewAmount.clear();
+		inputUserDonationNewHair.clear();
+	}
+	private void clearEmailChange() {
+		inputUserEmailNew.clear();
 	}
 	private void clearPasswordChange() {
 		inputUserPasswordOld.clear();;
