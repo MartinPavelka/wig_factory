@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
+import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -19,6 +20,9 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	private HashMap<String, Pane> paneMap = new HashMap<>();
 	
+	public Router router;
+	public User currentUser;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -31,7 +35,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
-			Router router = new Router(scene);
+			Router router = new Router(this, scene);
 			router.addRoute("login", getClass().getResource("/LoginScreen.fxml"));
 			router.addRoute("donor", getClass().getResource("/DonorScreen.fxml"));
 			router.setRoute("login");

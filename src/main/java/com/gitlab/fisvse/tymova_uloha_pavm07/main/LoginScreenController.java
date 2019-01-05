@@ -53,7 +53,25 @@ public class LoginScreenController extends Controller {
 			inputPassword.getText()
 		);
 		
-		System.out.println(u.getClass().getSimpleName());
+		// No such user
+		if (u == null) {
+			return;
+		}
+		
+		// Set current user
+		this.app.currentUser = u;
+		
+		// Set route based on user role
+		int role = u.getRole();
+		String roleStrId = RoleLookup.getInstance().getById(role).getStrId();
+		if (roleStrId == "ADMIN")
+			router.setRoute("admin");
+		else if (roleStrId == "EMPLOYEE")
+			router.setRoute("employee");
+		else if (roleStrId == "DONOR")
+			router.setRoute("donor");
+		else if (roleStrId == "PATIENT")
+			router.setRoute("patient");
 	}
 	
 	public void onClickRegister() {
