@@ -4,10 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.util.HashMap;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.OrderStatusLookup;
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.OrdersModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
+import com.gitlab.fisvse.tymova_uloha_pavm07.objects.Order;
 
 public class PatientScreenController extends Controller{
 
@@ -20,11 +24,29 @@ public class PatientScreenController extends Controller{
 		inputUserPasswordNew,
 		inputUserPasswordNewCheck,
 		inputUserEmailNew;
+	@FXML Text
+		orderStatus;
+	
+	Order myOrder;
 
 	public void init() {
 		clearAll();
+		updateOrder();
 	}
 	
+	private void updateOrder() {
+		OrdersModel model = new OrdersModel();
+		myOrder = model.getOrderByUserId(app.currentUser.getId());
+
+		
+		if (myOrder == null) {
+			orderStatus.setText("Zadna zadost...");
+			return;
+		}
+		OrderStatusLookup osl = OrderStatusLookup.getInstance();
+		orderStatus.setText(osl.getById(myOrder.getStatus()).getName());
+	}
+
 	public void onClickChangeUserPassword() {
 		String oldPassword = inputUserPasswordOld.getText();
 		String newPassword = inputUserPasswordNew.getText();
@@ -65,7 +87,16 @@ public class PatientScreenController extends Controller{
 	}
 
 	public void onClickCreateNewOrder() {
-		// založit žádost o paruku a nahrát do DB
+		OrdersModel model = new OrdersModel();
+		
+		if (myOrder != null) {
+			alertErrorAndWait("Jiz mate jednu zadost");
+			return;
+		}
+
+		// Add order
+		model.addOrder(app.currentUser.getId());
+		updateOrder();
 	}
 	
 	public void onClickLogout() {
