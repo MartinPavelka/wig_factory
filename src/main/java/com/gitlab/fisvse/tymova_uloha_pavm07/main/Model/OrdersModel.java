@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.Role;
 import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.RoleLookup;
@@ -69,6 +70,30 @@ public class OrdersModel extends Model {
 			System.out.println(e.getMessage());
 		}
 		
+		return null;
+	}
+
+	public ObservableList<Order> getAll() {
+		String sql = "SELECT Orders.id, username, status, userid FROM " + TABLE + " JOIN Users on Users.id = " + TABLE + ".userId;";
+		
+		ObservableList<Order> ordersList = FXCollections.observableArrayList();
+		
+		try (Connection conn = Database.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			while (rs.next()) {
+				Order o = new Order(
+						rs.getInt("id"),
+						rs.getInt("status"),
+						rs.getInt("userid")
+				);
+				o.setUsername(rs.getString("username"));
+				ordersList.add(o);
+			}
+			return ordersList;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 		return null;
 	}
 }
