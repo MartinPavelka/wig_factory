@@ -28,7 +28,7 @@ public class Controller {
 	}
 	
 	protected void alertInfoAndWait(String header) {
-		alertErrorAndWait(header, null);
+		alertInfoAndWait(header, null);
 	}
 	protected void alertInfoAndWait(String header, String text) {
 		alertAndWait(AlertType.INFORMATION, "Information", header, text);
