@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.util.HashMap;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.lookups.OrderStatusLookup;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.OrdersModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.objects.Order;
 
@@ -23,6 +24,13 @@ public class EmployeeOrdersScreenController extends Controller{
     @FXML TableView tableOrders;
 
     public void init() {
+    	OrderStatusLookup statusLookup = OrderStatusLookup.getInstance();
+    	comboBoxNewStatus.getItems().clear();
+    	comboBoxNewStatus.getItems().add((statusLookup.getByStrId("CREATED").getName()));
+    	comboBoxNewStatus.getItems().add((statusLookup.getByStrId("MANUFACTURED").getName()));
+    	comboBoxNewStatus.getItems().add((statusLookup.getByStrId("READY").getName()));
+    	comboBoxNewStatus.getItems().add((statusLookup.getByStrId("HANDEDOVER").getName()));
+    	comboBoxNewStatus.getSelectionModel().selectFirst();
     	updateOrdersList();
     }
 
