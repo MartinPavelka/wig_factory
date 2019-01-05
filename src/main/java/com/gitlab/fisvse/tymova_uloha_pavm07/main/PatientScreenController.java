@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.util.HashMap;
 
-public class PatientScreenController {
+public class PatientScreenController extends Controller{
 
 	@FXML
 	MenuItem logoutFromMenu;

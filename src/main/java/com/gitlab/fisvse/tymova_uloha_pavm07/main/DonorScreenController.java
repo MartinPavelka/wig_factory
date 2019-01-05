@@ -122,9 +122,9 @@ public class DonorScreenController extends Controller {
 		inputUserEmailNew.clear();
 	}
 	private void clearPasswordChange() {
-		inputUserPasswordOld.clear();;
-		inputUserPasswordNew.clear();;
-		inputUserPasswordNewCheck.clear();;
+		inputUserPasswordOld.clear();
+		inputUserPasswordNew.clear();
+		inputUserPasswordNewCheck.clear();
 	}
 	
 }

@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.util.HashMap;
 
-public class EmployeeScreenController {
+public class EmployeeScreenController extends Controller{
 
 	@FXML
 	MenuItem logoutFromMenu;
