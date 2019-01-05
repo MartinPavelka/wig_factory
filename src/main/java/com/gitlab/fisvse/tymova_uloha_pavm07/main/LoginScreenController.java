@@ -72,6 +72,8 @@ public class LoginScreenController extends Controller {
 			router.setRoute("donor");
 		else if (roleStrId == "PATIENT")
 			router.setRoute("patient");
+		else
+			clear();
 	}
 	
 	public void onClickRegister() {
