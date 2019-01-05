@@ -14,11 +14,6 @@ public class Resources {
 	}
 	
 	public void receiveDonation(Donation donation) {
-		// create if statement for different types of donations. receive into different lists;
-		if(donation.getType().equals("hair")) {
-			hairResources.add(new Donation(donation.getType(), donation.getAmount(), donation.getOwner()));
-		}
-		resources.add(new Donation(donation.getType(), donation.getAmount(), donation.getOwner()));
 	}
 	
 	public void useHair() {

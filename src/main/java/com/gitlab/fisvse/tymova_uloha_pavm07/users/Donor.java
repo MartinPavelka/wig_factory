@@ -10,8 +10,6 @@ public class Donor  extends User {
 	String type;
 	
 	public void donate(int amount, String type) {
-		Donation donation = new Donation(type, amount, this);
-		donations.add(donation);
 	}
 	
 	public ArrayList<Donation> getDonations() {
