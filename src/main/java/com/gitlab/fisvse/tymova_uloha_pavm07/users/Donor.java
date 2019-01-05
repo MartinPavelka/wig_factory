@@ -5,14 +5,4 @@ import java.util.ArrayList;
 import com.gitlab.fisvse.tymova_uloha_pavm07.objects.*;
 
 public class Donor  extends User {
-	private ArrayList<Donation> donations = new ArrayList<Donation>();
-	int amount;
-	String type;
-	
-	public void donate(int amount, String type) {
-	}
-	
-	public ArrayList<Donation> getDonations() {
-		return donations;
-	}
 }

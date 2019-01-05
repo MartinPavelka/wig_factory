@@ -19,7 +19,6 @@ public class IntkeyvalModel extends Model {
 		delete();
 		insert("money", 0);
 		insert("hair", 0);
-		System.out.println("done");
 	}
 	
 	public boolean delete() {

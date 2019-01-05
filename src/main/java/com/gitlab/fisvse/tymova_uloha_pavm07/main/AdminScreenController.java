@@ -62,8 +62,6 @@ public class AdminScreenController extends Controller{
 		String newPasswordCheck = inputUserPasswordNewCheck.getText();
 		
 		UserModel model = new UserModel();
-		System.out.println(app.currentUser.getId());
-		System.out.println(app.currentUser.getUsername());
 		if(model.login(app.currentUser.getUsername(), oldPassword) == null) {
 			alertErrorAndWait("Špatné heslo.");
 			return;

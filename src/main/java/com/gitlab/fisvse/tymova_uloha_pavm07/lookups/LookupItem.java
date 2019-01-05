@@ -8,7 +8,6 @@ public class LookupItem {
 		this.id = id;
 		this.strId = strId;
 		this.name = name;
-		System.out.println(strId);
 	}
 	
 	public int getId() {

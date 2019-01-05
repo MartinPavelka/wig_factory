@@ -76,7 +76,6 @@ public class DonorScreenController extends Controller {
 		int moneyAmount,
 			hairAmount;
 
-		System.out.println("kek1");
 		try {
 			moneyAmount = Integer.parseInt(inputUserDonationNewAmount.getText());
 			hairAmount = Integer.parseInt(inputUserDonationNewHair.getText());
@@ -84,8 +83,6 @@ public class DonorScreenController extends Controller {
 			alertErrorAndWait("Neplatne hodnoty. Zadejte prosim cele cislo.");
 			return;
 		}
-		
-		System.out.println("kek2");
 		
 		DonationsModel model = new DonationsModel();
 		if (!model.addDonation(

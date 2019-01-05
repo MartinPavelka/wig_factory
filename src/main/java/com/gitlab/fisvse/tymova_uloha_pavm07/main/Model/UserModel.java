@@ -28,15 +28,12 @@ public class UserModel extends Model {
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql)) {
 			while (rs.next()) {
-				System.out.println(rs.getInt("id"));
 				User u = new User(
 						rs.getInt("id"),
 						rs.getString("username"),
 						rs.getInt("role"),
 						rs.getString("mail")
 				);
-				System.out.println(u.getId());
-				System.out.println(u.getPropId());
 				usersList.add(u);
 			}
 			return usersList;
