@@ -108,7 +108,7 @@
          </children>
       </VBox>
       <Button fx:id="buttonLogout" layoutX="149.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#onClickLogout" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="149.0" />
-      <Button fx:id="buttonPayProject" layoutX="325.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#onClickEndProject" text="Zaplatit projekt" />
+      <Button fx:id="buttonPayProject" layoutX="325.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#onClickPayProject" text="Zaplatit projekt" disable="true"/>
       <Button fx:id="buttonManageRequests" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#onClickOpenRequests" text="Spravovat žádosti" AnchorPane.bottomAnchor="5.0" />
       <TextField fx:id="inputNewProjectPrice" layoutX="129.0" layoutY="329.0" prefHeight="25.0" prefWidth="110.0" text="Cena projektu" />
    </children>

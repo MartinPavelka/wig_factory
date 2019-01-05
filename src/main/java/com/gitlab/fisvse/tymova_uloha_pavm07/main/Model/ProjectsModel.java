@@ -59,4 +59,19 @@ public class ProjectsModel extends Model {
 		}
 		return null;
 	}
+	
+	public boolean setProjectStatus(int id, int status) {
+		String sql = "UPDATE " + TABLE + " SET status = ? WHERE id = ?;";
+		
+		try (	Connection conn = DriverManager.getConnection(Database.url);
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, status);
+			pstmt.setInt(2, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
 }
