@@ -34,13 +34,14 @@ public class UserModel extends Model {
 	}
 	
 	public User login(String username, String password) {
-		String sql = "SELECT id,username,role,mail FROM " + TABLE + " WHERE password = ?;";
+		String sql = "SELECT id,username,role,mail FROM " + TABLE + " WHERE username = ? AND password = ?;";
 	
 		try (
 			Connection conn = DriverManager.getConnection(Database.url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)
 		) {
-			pstmt.setString(1, password);
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
 			ResultSet rs = pstmt.executeQuery();
 			if (!rs.next())
 				return null;
