@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Database {
 	private static Connection conn;
-	private static String url;
+	public static final String url = "jdbc:sqlite:src/main/resources/wigs.db";
 	
 	public static Connection getConnection() {
 		try {
@@ -15,10 +15,5 @@ public class Database {
 			System.out.println(e.getMessage());
 			return null;
 		}
-	}
-	
-	public static void init(String url) {
-		Database.url = url;
-		
 	}
 }

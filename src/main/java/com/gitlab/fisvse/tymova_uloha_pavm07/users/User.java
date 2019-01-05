@@ -34,11 +34,8 @@ public class User {
 	public String getMail() {
 		return mail;
 	}
-	public boolean setMail(String mail) {
-		boolean isSuccess = new UserModel().setMail(id, mail);
-		if (isSuccess)
-			this.mail = mail;
-		return isSuccess;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	public int getId() {
 		return id;

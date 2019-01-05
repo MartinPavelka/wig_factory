@@ -1,6 +1,7 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07.main.Model;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class UserModel extends Model {
 		String hashedPassword = hashPassword(password);
 
 		String sql = "INSERT INTO " + TABLE + "(username,password,role,mail) VALUES(?,?,?,?);";		
-		try (Connection conn = Database.getConnection();
+		try (Connection conn = DriverManager.getConnection(Database.url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, username);
 			pstmt.setString(2, hashedPassword);
@@ -35,8 +36,10 @@ public class UserModel extends Model {
 	public User login(String username, String password) {
 		String sql = "SELECT id,username,role,mail FROM " + TABLE + " WHERE password = ?;";
 	
-		try (Connection conn = Database.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (
+			Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)
+		) {
 			pstmt.setString(1, password);
 			ResultSet rs = pstmt.executeQuery();
 			if (!rs.next())
@@ -51,6 +54,7 @@ public class UserModel extends Model {
 			u.setUsername(rs.getString("username"));
 			u.setRole(rs.getInt("role"));
 			u.setMail(rs.getString("mail"));
+			conn.close();
 			return u;
 
 		} catch (SQLException e) {
@@ -69,11 +73,12 @@ public class UserModel extends Model {
 	public boolean setPassword(int id, String password) {
 		String hashedPassword = hashPassword(password);
 		String sql = "UPDATE " + TABLE + " SET password = ? WHERE id = ?;";		
-		try (Connection conn = Database.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (	Connection conn = DriverManager.getConnection(Database.url);
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, hashedPassword);
 			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
+			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -83,11 +88,12 @@ public class UserModel extends Model {
 	
 	public boolean setMail(int id, String mail) {
 		String sql = "UPDATE " + TABLE + " SET mail = ? WHERE id = ?;";		
-		try (Connection conn = Database.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (	Connection conn = DriverManager.getConnection(Database.url);
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, mail);
 			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
+			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
