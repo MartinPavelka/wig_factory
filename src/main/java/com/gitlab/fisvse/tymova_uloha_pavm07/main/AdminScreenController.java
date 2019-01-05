@@ -20,7 +20,7 @@ public class AdminScreenController {
 	TextField inputUserEmailNew;
 	TextField inputNewUserName;
 	TextField inputNewUserMail;
-	ComboBox newUserRole;
+	ComboBox <String> newUserRole;
 	TextField inputNewUserPassword;
 
 

@@ -20,8 +20,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Log out" />
-              <MenuItem mnemonicParsing="false" text="Konec..." />
+                  <MenuItem fx:id="logoutFromMenu" mnemonicParsing="false" text="Log out" />
+              <MenuItem fx:id="endApplication" mnemonicParsing="false" text="Konec..." />
             </items>
           </Menu>
         </menus>
@@ -33,7 +33,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TableView fx:id="projectsTable" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
+      <TableView fx:id="tableProjects" layoutX="14.0" layoutY="75.0" prefHeight="200.0" prefWidth="408.0">
         <columns>
           <TableColumn fx:id="columnProjectID" prefWidth="82.0" text="ID kampaně" />
           <TableColumn fx:id="columnProjectName" prefWidth="115.0" text="Jméno kampaně" />

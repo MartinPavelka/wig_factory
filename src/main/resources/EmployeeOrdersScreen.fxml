@@ -19,8 +19,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Log out" />
-              <MenuItem mnemonicParsing="false" text="Konec..." />
+                  <MenuItem fx:id="logoutFromMenu" mnemonicParsing="false" text="Log out" />
+              <MenuItem fx:id="endApplication" mnemonicParsing="false" text="Konec..." />
             </items>
           </Menu>
         </menus>
@@ -29,7 +29,7 @@
       <Text fx:id="user_nameMail" layoutX="114.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="32.0" />
       <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0" />
       <VBox layoutX="435.0" layoutY="74.0" prefHeight="104.0" prefWidth="151.0" />
-      <TableView fx:id="user_donations1" layoutX="14.0" layoutY="78.0" prefHeight="200.0" prefWidth="570.0" AnchorPane.topAnchor="78.0">
+      <TableView fx:id="tableOrders" layoutX="14.0" layoutY="78.0" prefHeight="200.0" prefWidth="570.0" AnchorPane.topAnchor="78.0">
          <columns>
             <TableColumn fx:id="columnPatientID" prefWidth="82.0" text="ID pacienta" />
             <TableColumn fx:id="columnPatientName" prefWidth="266.0" text="Jméno pacienta" />

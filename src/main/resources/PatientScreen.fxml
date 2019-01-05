@@ -17,8 +17,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Log out" />
-              <MenuItem mnemonicParsing="false" text="Konec..." />
+                  <MenuItem fx:id="logoutFromMenu" mnemonicParsing="false" text="Log out" />
+              <MenuItem fx:id="endApplication" mnemonicParsing="false" text="Konec..." />
             </items>
           </Menu>
         </menus>
