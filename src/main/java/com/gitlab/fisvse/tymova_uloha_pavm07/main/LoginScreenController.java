@@ -32,6 +32,7 @@ public class LoginScreenController extends Controller {
 
 	private void initComboBox() {
 		RoleLookup roleLookup = RoleLookup.getInstance();
+		comboboxRole.getItems().clear();
 		comboboxRole.getItems().add(roleLookup.getByStrId("DONOR").getName());
 		comboboxRole.getItems().add(roleLookup.getByStrId("PATIENT").getName());
 	}
