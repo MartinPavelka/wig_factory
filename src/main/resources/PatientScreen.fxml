@@ -13,16 +13,6 @@
 
 <AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.PatientScreenController">
    <children>
-      <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem fx:id="logoutFromMenu" mnemonicParsing="false" text="Log out" />
-              <MenuItem fx:id="endApplication" mnemonicParsing="false" text="Konec..." />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
       <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vítejte uživateli" AnchorPane.topAnchor="33.0" />
       <Text fx:id="user_nameMail" layoutX="118.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.0" />
       <Text layoutX="16.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stav Vaší žádosti" wrappingWidth="113.1552734375" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="470.8447265625" AnchorPane.topAnchor="64.0">
