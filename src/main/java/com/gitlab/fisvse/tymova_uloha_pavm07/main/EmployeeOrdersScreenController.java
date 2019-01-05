@@ -1,6 +1,7 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07.main;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
@@ -10,23 +11,17 @@ import java.util.HashMap;
 
 public class EmployeeOrdersScreenController extends Controller{
 
-    @FXML
-    MenuItem logoutFromMenu;
-    MenuItem endApplication;
-    TableView tableOrders;
-    TextField inputPatientID;
-    ComboBox<String> newStatus;
+    @FXML ComboBox comboBoxNewStatus;
+    @FXML Button
+    	changeStatus,
+    	logout,
+    	goBack;
 
     public void init() {
-
-    }
-
-    public void donate() {
-
     }
 
     public void onClickLogout() {
-
+    	logout();
     }
 
     public void onClickChangeOrderStatus() {
@@ -35,6 +30,7 @@ public class EmployeeOrdersScreenController extends Controller{
 
     public void onClickGoBack() {
         // go back to employeeScreen
+    	router.setRoute("employee");
     }
 
 }
