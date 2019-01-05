@@ -1,9 +1,17 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07.lookups;
 
-public class Lookup {
-	private static LookupItem []items = {};
+import java.util.List;
+
+public abstract class Lookup {
+	protected List<LookupItem> items;
 	
-	public static LookupItem getById(int id) {
+	public Lookup() {
+		init();
+	}
+
+	public abstract void init();
+
+	public LookupItem getById(int id) {
 		for(LookupItem item: items) {
 			if (item.getId() == id)
 				return item;
@@ -11,7 +19,7 @@ public class Lookup {
 		return null;
 	}
 	
-	public static LookupItem getByStrId(String strId) {
+	public LookupItem getByStrId(String strId) {
 		for(LookupItem item: items) {
 			if (item.getStrId().equals(strId))
 				return item;
@@ -19,7 +27,7 @@ public class Lookup {
 		return null;
 	}
 	
-	public static LookupItem getByName(String name) {
+	public LookupItem getByName(String name) {
 		for(LookupItem item: items) {
 			if (item.getName().equals(name))
 				return item;

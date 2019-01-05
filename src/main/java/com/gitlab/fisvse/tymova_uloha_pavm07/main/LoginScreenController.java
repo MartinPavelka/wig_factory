@@ -31,10 +31,9 @@ public class LoginScreenController extends Controller {
 	}
 
 	private void initComboBox() {
-		System.out.println("asdfasdfasdf");
-		System.out.println(RoleLookup.getByStrId("DONOR"));
-		comboboxRole.getItems().add(RoleLookup.getByStrId("DONOR").getName());
-		comboboxRole.getItems().add(RoleLookup.getByStrId("PATIENT").getName());
+		RoleLookup roleLookup = RoleLookup.getInstance();
+		comboboxRole.getItems().add(roleLookup.getByStrId("DONOR").getName());
+		comboboxRole.getItems().add(roleLookup.getByStrId("PATIENT").getName());
 	}
 
 	//
@@ -60,12 +59,14 @@ public class LoginScreenController extends Controller {
 	public void onClickRegister() {
 		UserModel model = new UserModel();
 		String role = comboboxRole.getSelectionModel().getSelectedItem();
+
+		RoleLookup roleLookup = (RoleLookup)RoleLookup.getInstance();
 		
 		model.createUser(
 			inputRegUsername.getText(),
 			inputRegPassword.getText(),
 			inputRegMail.getText(),
-			RoleLookup.getByName(role).getId()
+			roleLookup.getByName(role).getId()
 		);
 		clear();
 	}

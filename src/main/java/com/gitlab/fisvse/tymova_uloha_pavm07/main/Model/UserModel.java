@@ -41,9 +41,10 @@ public class UserModel extends Model {
 			ResultSet rs = pstmt.executeQuery();
 			if (!rs.next())
 				return null;
-			
+
+			RoleLookup roleLookup = RoleLookup.getInstance();
 			int role = rs.getInt("role");
-			Role r = (Role)RoleLookup.getById(role);
+			Role r = (Role)roleLookup.getById(role);
 			Class cls = r.getUserCls();
 			User u = (User) cls.newInstance();
 			u.setId(rs.getInt("id"));
