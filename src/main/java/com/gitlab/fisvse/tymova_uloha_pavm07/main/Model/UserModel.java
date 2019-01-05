@@ -54,7 +54,6 @@ public class UserModel extends Model {
 			u.setUsername(rs.getString("username"));
 			u.setRole(rs.getInt("role"));
 			u.setMail(rs.getString("mail"));
-			conn.close();
 			return u;
 
 		} catch (SQLException e) {
@@ -78,7 +77,6 @@ public class UserModel extends Model {
 			pstmt.setString(1, hashedPassword);
 			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
-			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -93,7 +91,6 @@ public class UserModel extends Model {
 			pstmt.setString(1, mail);
 			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
-			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
