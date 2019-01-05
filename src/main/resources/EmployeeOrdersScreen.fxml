@@ -7,13 +7,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.DonorScreenController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.EmployeeOrdersScreenController">
    <children>
       <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -26,28 +25,23 @@
         </menus>
       </MenuBar>
       <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vítejte uživateli" AnchorPane.topAnchor="33.0" />
-      <Text fx:id="user_nameMail" layoutX="114.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="32.0" />
+      <Text fx:id="user_nameMail" layoutX="99.0" layoutY="46.05078125" strokeType="OUTSIDE" strokeWidth="0.0" text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.05078125" />
       <VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0" prefWidth="151.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0" />
       <VBox layoutX="435.0" layoutY="74.0" prefHeight="104.0" prefWidth="151.0" />
       <TableView fx:id="tableOrders" layoutX="14.0" layoutY="78.0" prefHeight="200.0" prefWidth="570.0" AnchorPane.topAnchor="78.0">
          <columns>
-            <TableColumn fx:id="columnPatientID" prefWidth="82.0" text="ID pacienta" />
+            <TableColumn fx:id="columnOrderId" prefWidth="82.0" text="ID žádosti" />
             <TableColumn fx:id="columnPatientName" prefWidth="266.0" text="Jméno pacienta" />
             <TableColumn fx:id="columnRequestStatus" prefWidth="221.0" text="Stav" />
          </columns>
       </TableView>
-      <Button fx:id="logout" layoutX="71.0" layoutY="368.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="71.0" onMouseClicked="#onClickLogout" />
-      <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacienti" AnchorPane.topAnchor="56.46484375">
+      <Button fx:id="logout" layoutX="71.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#onClickLogout" text="Odhlásit se" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="71.0" />
+      <Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Žádosti" AnchorPane.topAnchor="56.46484375">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text layoutX="14.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Změnit stav žádosti" AnchorPane.topAnchor="287.46484375">
-         <font>
-            <Font size="14.0" />
-         </font></Text>
-      <TextField fx:id="inputPatientID" layoutX="12.0" layoutY="311.0" prefHeight="27.0" prefWidth="110.0" text="Id pacienta" AnchorPane.topAnchor="311.0" />
-      <Button fx:id="changeStatus" layoutX="286.0" layoutY="311.0" mnemonicParsing="false" text="Změnit" AnchorPane.topAnchor="311.0" onMouseClicked="#onClickChangeOrderStatus"/>
-      <ComboBox fx:id="newStatus" layoutX="130.0" layoutY="311.0" prefWidth="150.0" AnchorPane.topAnchor="311.0" />
-      <Button fx:id="goBack" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Zpět" AnchorPane.bottomAnchor="5.0" onMouseClicked="#onClickGoBack"/>
+      <Button fx:id="changeStatus" layoutX="241.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#onClickChangeOrderStatus" text="Změnit stav žádosti" AnchorPane.topAnchor="321.0" />
+      <ComboBox fx:id="comboBoxNewStatus" layoutX="214.0" layoutY="290.0" prefHeight="25.0" prefWidth="172.0" AnchorPane.topAnchor="290.0" />
+      <Button fx:id="goBack" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#onClickGoBack" text="Zpět" AnchorPane.bottomAnchor="5.0" />
    </children>
 </AnchorPane>

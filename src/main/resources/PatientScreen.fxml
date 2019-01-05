@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.PatientScreenController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.PatientScreenController">
    <children>
       <MenuBar fx:id="menu" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -76,9 +76,8 @@
             </Button>
          </children>
       </VBox>
-      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" onMouseClicked="#onClickLogout"/>
-      <Button fx:id="createNewOrder" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" text="Vytvořit novou žádost" onMouseClicked="#onClickCreateNewOrder" />
-      <Text fx:id="orderStatus" layoutX="44.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderStatus" wrappingWidth="132.99999833106995" />
-      <Text fx:id="requestStatus1" layoutX="16.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stav:" wrappingWidth="41.999998331069946" />
+      <Button fx:id="logout" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#onClickLogout" text="Odhlásit se" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+      <Button fx:id="createNewOrder" layoutX="14.0" layoutY="126.0" mnemonicParsing="false" onMouseClicked="#onClickCreateNewOrder" text="Vytvořit novou žádost" />
+      <Text fx:id="orderStatus" layoutX="14.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderStatus" wrappingWidth="132.99999833106995" />
    </children>
 </AnchorPane>
