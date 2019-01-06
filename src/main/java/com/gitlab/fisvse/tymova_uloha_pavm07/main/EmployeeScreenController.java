@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import java.util.HashMap;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.DonationsModel;
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.IntkeyvalModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.ProjectsModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.objects.Donation;
@@ -136,10 +137,18 @@ public class EmployeeScreenController extends Controller {
 	}
 
 	public void onClickPayProject() {
+		IntkeyvalModel keyval = new IntkeyvalModel();
 		ProjectsModel model = new ProjectsModel();
+		if (selectedProject.getPrice() > keyval.get("money"))
+			alertErrorAndWait("Nemáme dostatečné prostředky");
+		else {
+			keyval.substract("money", selectedProject.getPrice());
+			model.setProjectStatus(selectedProject.getId(), 1);
+			updateProjectsList();}
+		
+		
 		// Set status to 1 = "PAID"
-		model.setProjectStatus(selectedProject.getId(), 1);
-		updateProjectsList();
+		
 	}
 
 	public void onClickCreateProject() {
