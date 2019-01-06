@@ -2,7 +2,7 @@ package com.gitlab.fisvse.tymova_uloha_pavm07;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.*;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.OrdersModel;
 

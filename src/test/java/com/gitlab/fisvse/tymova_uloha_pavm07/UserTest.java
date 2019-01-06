@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.junit.Test;
+import org.junit.*;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;

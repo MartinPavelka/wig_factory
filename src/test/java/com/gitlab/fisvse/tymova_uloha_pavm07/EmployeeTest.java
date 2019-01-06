@@ -1,7 +1,6 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,9 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.*;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.OrdersModel;
