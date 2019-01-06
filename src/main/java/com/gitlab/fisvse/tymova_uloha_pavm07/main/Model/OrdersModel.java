@@ -33,6 +33,49 @@ public class OrdersModel extends Model {
 		return true;
 	}
 	
+	public boolean removeOrder(Integer id) {
+		String sql = "DELETE FROM " + TABLE + " WHERE userid = ?;";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+			restartOrderIncrement();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean restartOrderIncrement() {
+		String sql = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Orders';";
+		int maxId = maxId();
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, maxId);
+        	pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	private int maxId() {
+		String sql = "SELECT MAX(id) FROM Orders;";	
+		int maxId = 1;
+		
+		try (Connection conn = Database.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			maxId = rs.getInt("MAX(id)");
+			return maxId;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return maxId;
+	}
+	
 	public boolean setOrderStatus(int id, int status) {
 		String sql = "UPDATE " + TABLE + " SET status = ? WHERE id = ?;";
 		

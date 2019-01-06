@@ -34,6 +34,49 @@ public class ProjectsModel extends Model {
 		return true;
 	}
 	
+	public boolean removeProject(Integer id) {
+		String sql = "DELETE FROM " + TABLE + " WHERE id = ?;";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+			restartProjectsIncrement();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean restartProjectsIncrement() {
+		String sql = "UPDATE sqlite_sequence SET seq = ? WHERE name = '" + TABLE + "';";
+		int maxId = maxId();
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, maxId);
+        	pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	private int maxId() {
+		String sql = "SELECT MAX(id) FROM " + TABLE + ";";	
+		int maxId = 1;
+		
+		try (Connection conn = Database.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			maxId = rs.getInt("MAX(id)");
+			return maxId;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return maxId;
+	}
+	
 	public ObservableList<Project> getAll(int userId) {
 		String sql = "SELECT id,price,status,name,userid FROM " + TABLE + ";";	
 

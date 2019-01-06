@@ -77,7 +77,7 @@ public class UserModel extends Model {
 	}
 	
 	public boolean restartUserIncrement() {
-		String sql = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Users';";
+		String sql = "UPDATE sqlite_sequence SET seq = ? WHERE name = '" + TABLE + "';";
 		int maxId = maxId();
 		try (Connection conn = DriverManager.getConnection(Database.url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {

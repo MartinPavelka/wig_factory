@@ -12,7 +12,6 @@ import java.sql.Statement;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
@@ -36,10 +35,15 @@ public class EmployeeTest {
 	ProjectsModel projects = new ProjectsModel();
 	ObservableList<Project> projectsList;
 	ObservableList<User> usersList;
+	
+    @Before
+    public void setUp()
+    {
+    }
     
-    @AfterEach
+    @After
     public void tearDown() {
-    	removeUnitUsers();
+    	
     }
 
     
@@ -62,10 +66,24 @@ public class EmployeeTest {
     	projectsList = projects.getAll(id);
     	int newCount = projectsList.size();
     	assertEquals(oldCount, newCount - 2);
-    	
+    	removeUnitUsers();
+    	removeUnitProjects();
     }
     
-    public boolean removeUnitUsers() {
+    private boolean removeUnitProjects() {
+    	String sql = "DELETE FROM Projects WHERE name like \"projekt1\";";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.executeUpdate();
+			projects.restartProjectsIncrement();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+    }
+    
+    private boolean removeUnitUsers() {
 		String sql = "DELETE FROM Users WHERE mail like \"example%\";";		
 		try (Connection conn = DriverManager.getConnection(Database.url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {

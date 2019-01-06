@@ -1,16 +1,13 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
@@ -28,12 +25,6 @@ public class UserTest {
 	ObservableList<User> usersList;
 	UserModel model = new  UserModel();
 	public static final String TABLE = "Users";
-
-    @AfterEach
-    public void tearDown()
-    {
-    	removeUnitUsers();
-    }
     
     @Test
     public void testSuccessfulRegistration() {
@@ -43,6 +34,7 @@ public class UserTest {
     	usersList = model.getAll();
     	int newUserCount = usersList.size();
     	assertEquals(userCount, newUserCount - 1);
+    	removeUnitUsers();
     }
     
     
@@ -63,6 +55,7 @@ public class UserTest {
     			assertEquals(usersList.get(i).getMail(), newMail);
     		}
     	}
+    	removeUnitUsers();
     }
     
     public boolean removeUnitUsers() {
