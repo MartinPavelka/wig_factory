@@ -63,17 +63,46 @@ public class UserModel extends Model {
 	}
 	
 	public boolean removeUser(Integer id) {
-		String sql = "DELETE FROM " + TABLE + " WHERE id = ?";		
+		String sql = "DELETE FROM " + TABLE + " WHERE id = ?;";		
 		try (Connection conn = DriverManager.getConnection(Database.url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
+			restartUserIncrement();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
 		}
 		return true;
-
+	}
+	
+	public boolean restartUserIncrement() {
+		String sql = "UPDATE sqlite_sequence SET seq = ? WHERE name = 'Users';";
+		int maxId = maxId();
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, maxId);
+        	pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	
+	private int maxId() {
+		String sql = "SELECT MAX(id) FROM Users;";	
+		int maxId = 1;
+		
+		try (Connection conn = Database.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql)) {
+			maxId = rs.getInt("MAX(id)");
+			return maxId;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return maxId;
 	}
 	
 	public User login(String username, String password) {

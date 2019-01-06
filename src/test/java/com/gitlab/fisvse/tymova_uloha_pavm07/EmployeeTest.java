@@ -3,10 +3,18 @@ package com.gitlab.fisvse.tymova_uloha_pavm07;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
+import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.OrdersModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.ProjectsModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
@@ -58,8 +66,20 @@ public class EmployeeTest {
     	projectsList = projects.getAll(id);
     	int newCount = projectsList.size();
     	assertEquals(oldCount, newCount - 2);
-    	for (int i = 2; i <= usersList.size(); i++) {
-    		users.removeUser(i);
-    	}
+    	removeUnitUsers();
     }
+    
+    public boolean removeUnitUsers() {
+		String sql = "DELETE FROM Users WHERE mail like \"example%\";";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.executeUpdate();
+			users.restartUserIncrement();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+    
 }
