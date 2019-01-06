@@ -34,3 +34,5 @@ CREATE TABLE IF NOT EXISTS Intkeyval(
 	key TEXT PRIMARY KEY NOT NULL,
 	value INTEGER
 );
+
+INSERT INTO Users (id, username, password, role, mail) VALUES (1, "admin", "admin", 0, "admin@admin.admin");
