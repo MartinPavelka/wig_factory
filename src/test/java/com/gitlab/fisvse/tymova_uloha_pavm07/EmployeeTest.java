@@ -37,7 +37,8 @@ public class EmployeeTest {
     public void tearDown()
     {
     }
-    
+   
+    @Test
     public void testMultipleOrders() {
     	assertEquals(users.createUser("zamestnanec", "12345", "example@mail.org", 1), true);
     	assertEquals(users.createUser("pacient1", "12345", "example@mail.org", 3), true);

@@ -47,6 +47,7 @@ public class UserTest {
     	usersList = model.getAll();
     	int userCount = usersList.size();
     	assertEquals(model.createUser("test", "testpassword", "example@mail.org", 2), true);
+    	usersList = model.getAll();
     	int newUserCount = usersList.size();
     	assertEquals(userCount, newUserCount - 1);
     }
@@ -65,7 +66,6 @@ public class UserTest {
     	assertEquals(model.setMail(id, newMail), true);
     	usersList = model.getAll();
     	for (int i = 0; i < usersList.size(); i++) {
-    		System.out.println(usersList.get(i));
     		if (usersList.get(i).getUsername().equals("test")) {
     			assertEquals(usersList.get(i).getMail(), newMail);
     		}
