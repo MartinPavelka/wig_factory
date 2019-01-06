@@ -32,12 +32,13 @@ public class EmployeeTest {
     public void setUp()
     {
     }
-
+    
     @After
-    public void tearDown()
-    {
+    public void tearDown() {
+    	
     }
-   
+
+    
     @Test
     public void testMultipleOrders() {
     	assertEquals(users.createUser("zamestnanec", "12345", "example@mail.org", 1), true);
@@ -57,6 +58,8 @@ public class EmployeeTest {
     	projectsList = projects.getAll(id);
     	int newCount = projectsList.size();
     	assertEquals(oldCount, newCount - 2);
-   	
+    	for (int i = 2; i <= usersList.size(); i++) {
+    		users.removeUser(i);
+    	}
     }
 }

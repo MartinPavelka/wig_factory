@@ -62,6 +62,20 @@ public class UserModel extends Model {
 
 	}
 	
+	public boolean removeUser(Integer id) {
+		String sql = "DELETE FROM " + TABLE + " WHERE id = ?";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+
+	}
+	
 	public User login(String username, String password) {
 		String sql = "SELECT id,username,role,mail FROM " + TABLE + " WHERE username = ? AND password = ?;";
 	
