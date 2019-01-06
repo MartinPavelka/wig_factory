@@ -48,16 +48,21 @@ public class UserTest {
     	int userCount = usersList.size();
     	assertEquals(model.createUser("test", "testpassword", "example@mail.org", 2), true);
     	int newUserCount = usersList.size();
-    	System.out.println(userCount);
-    	System.out.println(newUserCount);
     	assertEquals(userCount, newUserCount - 1);
     }
     
     
     @Test
     public void testEmailChange() {
+    	usersList = model.getAll();
+    	int id = 0;
+    	for (int i = 0; i < usersList.size(); i++) {
+    		if (usersList.get(i).getUsername().equals("test")) {
+    			id = usersList.get(i).getId();
+    		}
+    	}
     	String newMail = "example3@mail.org";
-    	assertEquals(model.setMail(3, newMail), true);
+    	assertEquals(model.setMail(id, newMail), true);
     	usersList = model.getAll();
     	for (int i = 0; i < usersList.size(); i++) {
     		System.out.println(usersList.get(i));
