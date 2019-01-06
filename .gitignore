@@ -1,5 +1,8 @@
 /target/
-/src/main/resources/database.db
+/src/main/resources/wigs.db
+
+# SQLite Database file
+*.db
 
 # Compiled class file
 *.class
