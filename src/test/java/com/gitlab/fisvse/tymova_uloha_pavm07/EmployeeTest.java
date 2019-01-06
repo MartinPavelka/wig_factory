@@ -1,9 +1,10 @@
 package com.gitlab.fisvse.tymova_uloha_pavm07;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.Test;
 
 
 /**
