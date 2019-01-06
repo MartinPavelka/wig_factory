@@ -10,7 +10,7 @@ import org.junit.Before;
  * Testovací třída pro třídu Patient.
  *
  */
-public class UserTest {
+public class EmployeeTest {
 
 
     @Before

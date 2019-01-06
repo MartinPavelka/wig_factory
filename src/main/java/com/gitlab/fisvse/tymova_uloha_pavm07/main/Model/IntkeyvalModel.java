@@ -23,8 +23,7 @@ public class IntkeyvalModel extends Model {
 	
 	public boolean delete() {
 		String sql = "DELETE FROM " + TABLE + ";";
-		try (
-				Connection conn = DriverManager.getConnection(Database.url);
+		try (Connection conn = DriverManager.getConnection(Database.url);
 				PreparedStatement pstmt = conn.prepareStatement(sql)
 			) {
 			pstmt.executeUpdate();
