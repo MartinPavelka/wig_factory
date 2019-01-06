@@ -12,6 +12,7 @@ import java.sql.Statement;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
@@ -35,15 +36,10 @@ public class EmployeeTest {
 	ProjectsModel projects = new ProjectsModel();
 	ObservableList<Project> projectsList;
 	ObservableList<User> usersList;
-	
-    @Before
-    public void setUp()
-    {
-    }
     
-    @After
+    @AfterEach
     public void tearDown() {
-    	
+    	removeUnitUsers();
     }
 
     
@@ -66,7 +62,7 @@ public class EmployeeTest {
     	projectsList = projects.getAll(id);
     	int newCount = projectsList.size();
     	assertEquals(oldCount, newCount - 2);
-    	removeUnitUsers();
+    	
     }
     
     public boolean removeUnitUsers() {

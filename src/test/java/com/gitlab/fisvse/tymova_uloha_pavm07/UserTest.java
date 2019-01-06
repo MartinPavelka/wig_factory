@@ -10,15 +10,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.Database;
 import com.gitlab.fisvse.tymova_uloha_pavm07.main.Model.UserModel;
 import com.gitlab.fisvse.tymova_uloha_pavm07.users.User;
 
 import javafx.collections.ObservableList;
-
-import org.junit.After;
-import org.junit.Before;
 
 
 /**
@@ -30,16 +28,11 @@ public class UserTest {
 	ObservableList<User> usersList;
 	UserModel model = new  UserModel();
 	public static final String TABLE = "Users";
-	
-    @Before
-    public void setUp()
-    {
-    	
-    }
 
-    @After
+    @AfterEach
     public void tearDown()
     {
+    	removeUnitUsers();
     }
     
     @Test
@@ -71,5 +64,18 @@ public class UserTest {
     		}
     	}
     }
+    
+    public boolean removeUnitUsers() {
+		String sql = "DELETE FROM Users WHERE mail like \"example%\";";		
+		try (Connection conn = DriverManager.getConnection(Database.url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.executeUpdate();
+			model.restartUserIncrement();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
 }
 
