@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0"
+	minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8.0.191"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.EmployeeOrdersScreenController">
+	<children>
+		<Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Vítejte uživateli"
+			AnchorPane.topAnchor="33.0" />
+		<Text fx:id="user_nameMail" layoutX="99.0" layoutY="46.05078125"
+			strokeType="OUTSIDE" strokeWidth="0.0"
+			text=" DonorUserName (DonorMail)" AnchorPane.topAnchor="33.05078125" />
+		<VBox layoutX="435.0" layoutY="218.0" prefHeight="175.0"
+			prefWidth="151.0" AnchorPane.bottomAnchor="14.0"
+			AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="218.0" />
+		<VBox layoutX="435.0" layoutY="74.0" prefHeight="104.0"
+			prefWidth="151.0" />
+		<TableView fx:id="tableOrders" layoutX="14.0" layoutY="78.0"
+			prefHeight="200.0" prefWidth="570.0" AnchorPane.topAnchor="78.0">
+			<columns>
+				<TableColumn fx:id="columnOrderId" prefWidth="82.0"
+					text="ID žádosti">
+					<cellValueFactory>
+						<PropertyValueFactory property="propId" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="columnPatientName" prefWidth="266.0"
+					text="Jméno pacienta">
+					<cellValueFactory>
+						<PropertyValueFactory property="propUsername" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="columnRequestStatus"
+					prefWidth="221.0" text="Stav">
+					<cellValueFactory>
+						<PropertyValueFactory property="propStatus" />
+					</cellValueFactory>
+				</TableColumn>
+			</columns>
+		</TableView>
+		<Button fx:id="logout" layoutX="71.0" layoutY="368.0"
+			mnemonicParsing="false" onMouseClicked="#onClickLogout"
+			text="Odhlásit se" AnchorPane.bottomAnchor="5.0"
+			AnchorPane.leftAnchor="71.0" />
+		<Text layoutX="14.0" layoutY="70.0" strokeType="OUTSIDE"
+			strokeWidth="0.0" text="Žádosti" AnchorPane.topAnchor="56.46484375">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Text>
+		<Button fx:id="buttonChangeStatus" layoutX="241.0" layoutY="321.0"
+			mnemonicParsing="false" onMouseClicked="#onClickChangeOrderStatus"
+			text="Změnit stav žádosti" AnchorPane.topAnchor="321.0" />
+		<ComboBox fx:id="comboBoxNewStatus" layoutX="214.0"
+			layoutY="290.0" prefHeight="25.0" prefWidth="172.0"
+			AnchorPane.topAnchor="290.0" />
+		<Button fx:id="goBack" layoutX="14.0" layoutY="359.0"
+			mnemonicParsing="false" onMouseClicked="#onClickGoBack" text="Zpět"
+			AnchorPane.bottomAnchor="5.0" />
+	</children>
+</AnchorPane>

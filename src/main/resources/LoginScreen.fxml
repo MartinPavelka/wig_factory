@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gitlab.fisvse.tymova_uloha_pavm07.main.LoginScreenController">
+   <children>
+      <HBox layoutX="30.0" layoutY="59.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Přihlásit se">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="username:" />
+                  <TextField text="username" fx:id="inputUsername" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:"  />
+                  <TextField text="heslo" fx:id="inputPassword" />
+                  <Button mnemonicParsing="false" onMouseClicked="#onClickLogin" prefHeight="25.0" prefWidth="279.0" text="Přihlásit se">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="14.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Region prefHeight="200.0" prefWidth="200.0" /> 
+               </children>
+               <HBox.margin>
+                  <Insets left="14.0" right="7.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nový uživatel">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Typ uživatele" />
+                  <ComboBox prefWidth="150.0" fx:id="comboboxRole" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="username:" />
+                  <TextField text="username" fx:id="inputRegUsername" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="heslo:" />
+                  <TextField text="heslo" fx:id="inputRegPassword" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
+                  <TextField text="mail" fx:id="inputRegMail" />
+                  <Button mnemonicParsing="false" onMouseClicked="#onClickRegister" prefHeight="25.0" prefWidth="298.0" text="Registrovat se">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="14.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
+               </children>
+               <HBox.margin>
+                  <Insets left="7.0" right="14.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
